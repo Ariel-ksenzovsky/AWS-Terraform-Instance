@@ -5,7 +5,7 @@
 
   vars:
     docker_compose_version: "1.29.2"
-    repo_url: "https://github.com/Ariel-ksenzovsky/star-image-app.git"
+    repo_url: "https://github.com/Ariel-ksenzovsky/AWS-Terraform-Instance.git"
     s3_bucket: "my-bucket101110101"
     s3_env_path: "configs/.env"
 
@@ -44,15 +44,15 @@
     - name: Clone the Flask app repository
       git:
         repo: "{{ repo_url }}"
-        dest: /home/ec2-user/star-image-app
+        dest: /home/ec2-user/AWS-Terraform-Instance
         version: HEAD
 
     - name: Copy the .env file from S3
-      command: aws s3 cp s3://{{ s3_bucket }}/{{ s3_env_path }} /home/ec2-user/star-image-app/.env
+      command: aws s3 cp s3://{{ s3_bucket }}/{{ s3_env_path }} /home/ec2-user/AWS-Terraform-Instance/.env
       args:
-        creates: /home/ec2-user/star-image-app/.env
+        creates: /home/ec2-user/AWS-Terraform-Instance/.env
 
     - name: Run Docker Compose to start the application
       shell: docker-compose up -d
       args:
-        chdir: /home/ec2-user/star-image-app
+        chdir: /home/ec2-user/AWS-Terraform-Instance

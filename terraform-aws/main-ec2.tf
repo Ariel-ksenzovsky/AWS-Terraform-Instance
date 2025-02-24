@@ -74,7 +74,7 @@ resource "aws_instance" "docker_instance" {
               sudo yum install -y git ansible
 
               # Clone the repository containing the Ansible playbook
-              git clone AWS-Terraform-Instance /home/ec2-user/AWS-Terraform-Instance
+              git clone https://github.com/Ariel-ksenzovsky/AWS-Terraform-Instance.git /home/ec2-user/AWS-Terraform-Instance
               # Run the Ansible playbook
               ansible-playbook /home/ec2-user/AWS-Terraform-Instance/ansible-flask-app-ec2.yml
               EOF

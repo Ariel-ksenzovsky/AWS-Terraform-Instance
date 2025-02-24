@@ -53,11 +53,6 @@ jobs:
       run: |
        docker push ${{ env.IMAGE}}:latest
        docker push ${{ env.IMAGE }}:${{ env.VERSION }}  
-
-    - name: Update values.yaml with version
-      run: |
-         sed -i "s/tag:.*/tag: \"${{ env.VERSION }}\"/" charts/flask-app/values.yaml
-         cat charts/flask-app/values.yaml  # Print out for debugging
     
     - name: Set up Docker Compose environment variables
       run: |

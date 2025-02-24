@@ -1,0 +1,7 @@
+docker-compose.yml
+congigmap.yml
+secret.yml
+.gitignore
+terraform-aws/**
+.env
+ansible-flask-app-ec2.yml
